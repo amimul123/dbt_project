@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_payments
+    columns:
+      - name: orderid
+        tests:
+          - not_null
+      - name: paymentmethod
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'bank_transfer', 'coupon', 'gift_card']
+      - name: staus
+        tests:
+          - accepted_values:
+              values: ['fail', 'success']
